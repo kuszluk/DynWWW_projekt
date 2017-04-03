@@ -1,5 +1,10 @@
 <?php
+// dodaj konfiuguracje
 require_once dirname(__FILE__).'\..\config.php';
+
+// załaduj Smarty
+require_once _ROOT_PATH.'/libs/Smarty.class.php';
+
 
 // 1. Pobranie parametrów
 function getParams(&$kwota,&$oprocentowanie,&$okres_splaty){
@@ -70,9 +75,24 @@ $messages = array();
 
 //Pobierz parametry i wykonaj zadanie jeśli wszystko w porządku
 getParams($kwota,$oprocentowanie,$okres_splaty);
-if ( validate($kwota,$oprocentowanie,$okres_splaty,$messages) ) { // gdy brak błędów
+if ( validate($kwota,$oprocentowanie,$okres_splaty,$messages) ) {
     process($kwota,$oprocentowanie,$okres_splaty,$result,$koszt);
 }
 
-// 4. Wywołanie widoku z przekazaniem zmiennych
-include 'calc_view.php';
+// 4. Przygotowanie danych dla szablonu
+
+$smarty = new Smarty();
+
+$smarty->assign('app_url',_APP_URL);
+$smarty->assign('root_path',_ROOT_PATH);
+$smarty->assign('page_title','Kalkulator kredytowy- Smarty!');
+$smarty->assign('page_description','opis');
+$smarty->assign('page_header','header');
+
+//pozostałe zmienne niekoniecznie muszą istnieć, dlatego sprawdzamy aby nie otrzymać ostrzeżenia
+$smarty->assign('result',$result);
+$smarty->assign('koszt',$koszt);
+$smarty->assign('messages',$messages);
+
+// 5. Wywołanie szablonu
+$smarty->display(_ROOT_PATH.'/app/calc.html');

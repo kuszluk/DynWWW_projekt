@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{$page_title|default:"Tytuł domyślny"}</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700">
+    <link rel="stylesheet" href="{$app_url}/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{$app_url}/assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{$app_url}/assets/css/animate.css">
+    <link rel="stylesheet" href="{$app_url}/assets/css/style.css">
+    <link rel="stylesheet" href="{$app_url}/assets/css/media-queries.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{$app_url}/assets/ico/favicon.png">
+
+</head>
+    <body>
+
+        <!-- Top content -->
+        <div class="top-content">
+            <div class="container">
+
+                {block name=opis_kalkulatora}
+                    Domyślny opis kalkulatora
+                {/block}
+
+                {block name=content_kalkulatora}
+                    Domyślna zawartość kalkulatora
+                {/block}
+
+
+            </div>
+        </div>
+
+        <footer>
+            {block name=footer} Domyślna treść stopki... {/block}
+        </footer>
+
+
+        {block name=scripts}
+            <!-- Javascript -->
+            <script src="{$app_url}/assets/js/jquery-1.11.1.min.js"></script>
+            <script src="{$app_url}/assets/bootstrap/js/bootstrap.min.js"></script>
+            <script src="{$app_url}/assets/js/jquery.backstretch.min.js"></script>
+            <script src="{$app_url}/assets/js/wow.min.js"></script>
+            <script src="{$app_url}/assets/js/retina-1.1.0.min.js"></script>
+            <script src="{$app_url}/assets/js/scripts.js"></script>
+
+            <!--[if lt IE 10]>
+            <script src="{$app_url}/assets/js/placeholder.js"></script>
+            <![endif]-->
+        {/block}
+
+    </body>
+</html>
