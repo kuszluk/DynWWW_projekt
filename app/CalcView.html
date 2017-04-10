@@ -29,15 +29,15 @@
             <form role="form" action="{$app_url}/app/calc.php" method="post">
                 <div class="form-group">
                     <label class="sr-only" for="kwota_kredytu">Kwota kredytu</label>
-                    <input type="text" name="kwota_kredytu" placeholder="Kwota kredytu..." class="r-form-1-first-name form-control" id="kwota_kredytu">
+                    <input type="text" name="kwota_kredytu" placeholder="Kwota kredytu..." class="r-form-1-first-name form-control" id="kwota_kredytu" value="{$form->kwota}" >
                 </div>
                 <div class="form-group">
                     <label class="sr-only" for="oprocentowanie_roczne">Oprocentowanie</label>
-                    <input type="text" name="oprocentowanie_roczne" placeholder="Oprocentowanie..." class="r-form-1-last-name form-control" id="oprocentowanie_roczne">
+                    <input type="text" name="oprocentowanie_roczne" placeholder="Oprocentowanie..." class="r-form-1-last-name form-control" id="oprocentowanie_roczne" value="{$form->oprocentowanie}" >
                 </div>
                 <div class="form-group">
                     <label class="sr-only" for="okres_splaty">Okres spłaty</label>
-                    <input type="text" name="okres_splaty" placeholder="Okres spłaty..." class="r-form-1-email form-control" id="okres_splaty">
+                    <input type="text" name="okres_splaty" placeholder="Okres spłaty..." class="r-form-1-email form-control" id="okres_splaty" value="{$form->okres_splaty}" >
                 </div>
                 <button type="submit" class="btn">Sprawdź!</button>
             </form>
@@ -46,25 +46,28 @@
 
 
 
-    {if isset($messages) || isset($result)}
+
+
+    {if $msgs->isError() || isset($result)}
     <div class="col-sm-3 r-form-1-box msg-box wow fadeInUp">
 
-        {if count($messages) > 0}
+
+        {if $msgs->isError()}
         <p class="msg-box-header">BŁĘDY: </p>
         <ol>
-            {foreach  $messages as $msg}
+            {foreach $msgs->getErrors() as $err}
             {strip}
-            <li>{$msg}</li>
+            <li>{$err}</li>
             {/strip}
             {/foreach}
         </ol>
         {/if}
 
-
         {if isset($result)}
         <p class="msg-box-header">WYNIK: </p>
-        <p id="wynik"><span class="msg-wynik"> Rata kredytu: </span>{$result} zł</p>
-        <p id="wynik"><span class="msg-wynik"> Koszt kredytu: </span>{$koszt} zł</p>
+        <p class="wynik"><span class="msg-wynik"> Wartość kredytu: </span>{$wartosc} zł</p>
+        <p class="wynik"><span class="msg-wynik"> Rata kredytu: </span>{$result} zł</p>
+        <p class="wynik"><span class="msg-wynik"> Koszt kredytu: </span>{$koszt} zł</p>
         {/if}
 
     </div>

@@ -1,6 +1,6 @@
 <?php
 /* Smarty version 3.1.30, created on 2017-04-04 00:01:11
-  from "C:\xampp\htdocs\_PROJEKTY\kredyt\app\calc.html" */
+  from "C:\xampp\htdocs\_PROJEKTY\kredyt\app\CalcView.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
@@ -11,7 +11,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
     '481a00effbb7e613cd733b4b6ec7fa1c75b3a455' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\_PROJEKTY\\kredyt\\app\\calc.html',
+      0 => 'C:\\xampp\\htdocs\\_PROJEKTY\\kredyt\\app\\CalcView.html',
       1 => 1491256870,
       2 => 'file',
     ),
